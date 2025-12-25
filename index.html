@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Tisha</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-top: #fdf2f7;
+      --bg-bottom: #e5e9f2;
+      --romantic-red: #d63384;
+      --text-grey: #555;
+      --white: rgba(255, 255, 255, 0.9);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, var(--bg-top), var(--bg-bottom));
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    input[type="radio"] {
+      display: none;
+    }
+    
+    /* Page Layout */
+    .container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    
+    section {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+      transition: all 0.6s ease-in-out;
+    }
+    
+    /* Navigation Switcher */
+    #p1:checked ~ .container #page1,
+    #p2:checked ~ .container #page2,
+    #p3:checked ~ .container #page3,
+    #p4:checked ~ .container #page4,
+    #p5:checked ~ .container #page5,
+    #p6:checked ~ .container #page6,
+    #p7:checked ~ .container #page7 {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+      z-index: 10;
+    }
+    
+    /* Typography */
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5rem;
+      color: var(--romantic-red);
+      margin-bottom: 15px;
+    }
+    
+    .sub-text {
+      font-size: 1.1rem;
+      color: var(--text-grey);
+      margin-bottom: 30px;
+      font-weight: 300;
+    }
+    
+    /* Buttons */
+    .btn {
+      background: white;
+      color: var(--romantic-red);
+      padding: 12px 35px;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      transition: 0.3s;
+      display: inline-block;
+      margin: 10px;
+      border: none;
+      text-decoration: none;
+    }
+    
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(214, 51, 132, 0.2);
+    }
+    
+    /* YES Path - Cute Illustration Style */
+    .illustration-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeIn 1.2s ease;
+    }
+    
+    .couple-img {
+      width: 280px;
+      height: auto;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+    }
+    
+    /* NO Path - Feedback */
+    .feedback-area {
+      background: var(--white);
+      padding: 30px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+    
+    .reason-input {
+      width: 100%;
+      height: 100px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 10px;
+      margin: 15px 0;
+      font-family: inherit;
+    }
+    
+    /* Control Visibility on Last Page */
+    .last-options {
+      display: block;
+    }
+    
+    #ans-yes:checked ~ .last-options,
+    #ans-no:checked ~ .last-options {
+      display: none;
+    }
+    
+    .yes-result, .no-result {
+      display: none;
+    }
+    
+    #ans-yes:checked ~ .yes-result {
+      display: flex;
+    }
+    
+    #ans-no:checked ~ .no-result {
+      display: flex;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <input type="radio" name="nav" id="p1" checked>
+  <input type="radio" name="nav" id="p2">
+  <input type="radio" name="nav" id="p3">
+  <input type="radio" name="nav" id="p4">
+  <input type="radio" name="nav" id="p5">
+  <input type="radio" name="nav" id="p6">
+  <input type="radio" name="nav" id="p7">
+  
+  <div class="container">
+    <section id="page1">
+      <h1>Hey Tisha</h1>
+      <p class="sub-text">I have a little story to tell you...</p>
+      <label for="p2" class="btn">Start</label>
+    </section>
+    
+    <section id="page2">
+      <p class="sub-text">Do you believe some people are meant to meet?</p>
+      <div>
+        <label for="p3" class="btn">Yes</label>
+        <label for="p3" class="btn">Maybe</label>
+      </div>
+    </section>
+    
+    <section id="page3">
+      <p class="sub-text">Do you like moments that feel safe and real?</p>
+      <div>
+        <label for="p4" class="btn">Yes</label>
+        <label for="p4" class="btn">Sometimes</label>
+      </div>
+    </section>
+    
+    <section id="page4">
+      <p class="sub-text">Can one person start meaning everything?</p>
+      <label for="p5" class="btn">I think so</label>
+    </section>
+    
+    <section id="page5">
+      <p class="sub-text">Every moment with you feels like home...</p>
+      <label for="p6" class="btn">Next</label>
+    </section>
+    
+    <section id="page6">
+      <h1 style="font-size: 3rem;">Tisha...</h1>
+      <p class="sub-text">Will you be mine forever?</p>
+      <label for="p7" class="btn">I have an answer</label>
+    </section>
+    
+    <section id="page7">
+      <input type="radio" name="final" id="ans-yes">
+      <input type="radio" name="final" id="ans-no">
+      
+      <div class="last-options">
+        <h1>Your Answer</h1>
+        <label for="ans-yes" class="btn" style="background: var(--romantic-red); color: white;">YES</label>
+        <label for="ans-no" class="btn">NO</label>
+      </div>
+      
+      <div class="yes-result illustration-box">
+        <h1 style="font-size: 2.5rem;">You just made my heart the happiest!</h1>
+        <p class="sub-text">I can't wait to start this journey with you, Tisha.</p>
+        <div style="font-size: 100px; margin-top: 20px; animation: fadeIn 2s;">💕</div>
+      </div>
+      
+      <div class="no-result feedback-area">
+        <h3 style="color: var(--romantic-red);">I Respect Your Choice</h3>
+        <textarea class="reason-input" placeholder="Is there something I can do better?"></textarea>
+        <a href="mailto:your-email@example.com?subject=Note from Tisha" class="btn" style="background: #555; color: white;">Send Note</a>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
